@@ -54,6 +54,12 @@ lcd = characterlcd.Character_LCD_RGB(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd
 #lcd.backlight = True
 lcd.color = [100, 0, 0]
 #lcd.message = "6500 RPM\n              \x01N"
-lcd.message = "6500 RPM\n               N"
+
+n = 0
+for x in range(0, 10):
+	list = [6500 + n, " RPM\n               N"]
+	lcd.message = ''.join(str(y) for y in list)
+	n=n+10
+	time.sleep(0.5)
 
 time.sleep(5)
