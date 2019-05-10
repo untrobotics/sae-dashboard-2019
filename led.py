@@ -4,7 +4,7 @@ import neopixel
 import time
 import random
 
-N_LEDS = 60
+N_LEDS = 204
 MAX_REVS = 15000
 pixels = neopixel.NeoPixel(board.D18, N_LEDS)
 
@@ -17,8 +17,10 @@ while True:
 	rev_counter = revs_to_n(revs);
 	print('N', rev_counter);
 
+	rev_counter = 0
+
 	for x in range(0, N_LEDS):
-		if x <= rev_counter:
+		if x < rev_counter:
 			g = int(100 - (x * 100/(N_LEDS - 1)))
 			r = int((x * 255/(N_LEDS - 1)))
 			pixels[x] = (r, g, 0)
